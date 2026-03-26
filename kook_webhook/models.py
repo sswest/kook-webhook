@@ -111,7 +111,7 @@ class Attachment(BaseModel):
     type: str
     url: str
     name: str
-    size: int
+    size: Optional[int] = None
     file_type: Optional[str] = None
     duration: Optional[float] = None
     width: Optional[int] = None
@@ -161,7 +161,7 @@ class MessageExtra(BaseModel):
     nav_channels: Optional[list[Any]] = Field(default_factory=list)
     author: User
     quote: Optional[Quote] = None
-    attachments: Optional[list[Attachment]] = None
+    attachments: Optional[Attachment] = None
     kmarkdown: Optional[dict[str, Any]] = None
     emoji: Optional[list[Any]] = Field(default_factory=list)
     preview_content: Optional[str] = None
